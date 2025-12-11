@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'contact',
     'projects',
     'blog',
+    'newsletter',
 ]
 
 # Required for allauth
