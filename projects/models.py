@@ -4,7 +4,6 @@ from django.utils.text import slugify
 
 class Project(models.Model):
     title = models.CharField(max_length=200)
-    slug = models.SlugField(max_length=200, unique=True, blank=True)
     description = models.TextField()
     short_description = models.CharField(max_length=300, blank=True)
     image = models.ImageField(upload_to='projects/', blank=True, null=True)
