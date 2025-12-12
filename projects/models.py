@@ -1,6 +1,5 @@
 from django.db import models
 from django.utils import timezone
-from django.utils.text import slugify
 
 class Project(models.Model):
     title = models.CharField(max_length=200)
@@ -16,8 +15,6 @@ class Project(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.title)
         if not self.short_description and self.description:
             self.short_description = self.description[:297] + '...' if len(self.description) > 300 else self.description
         super().save(*args, **kwargs)

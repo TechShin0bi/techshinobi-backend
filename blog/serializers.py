@@ -28,9 +28,9 @@ class BlogPostSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = BlogPost
-        fields = ['id', 'title', 'slug', 'content', 'author', 'created_at', 
+        fields = ['id', 'title', 'content', 'author', 'created_at', 
                  'updated_at', 'is_published', 'comments', 'comment_count']
-        read_only_fields = ['author', 'slug', 'created_at', 'updated_at']
+        read_only_fields = ['author', 'created_at', 'updated_at']
     
     def get_comment_count(self, obj):
         return obj.comments.filter(is_active=True).count()

@@ -29,7 +29,7 @@ class BlogPostListCreateView(generics.ListCreateAPIView):
 class BlogPostRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = BlogPost.objects.all()
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-    lookup_field = 'slug'
+    lookup_field = 'id'
     
     def get_serializer_class(self):
         if self.request.method in ['PUT', 'PATCH']:
@@ -53,7 +53,7 @@ class CommentCreateView(generics.CreateAPIView):
     def perform_create(self, serializer):
         post = generics.get_object_or_404(
             BlogPost, 
-            slug=self.kwargs['slug'],
+            id=self.kwargs['id'],
             is_published=True
         )
         serializer.save(author=self.request.user, post=post)

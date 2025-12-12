@@ -8,11 +8,11 @@ class ProjectViewSet(viewsets.ModelViewSet):
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
     permission_classes = [IsAuthenticatedOrReadOnly]
-    filter_backends = [DjangoFilterBackend, filters.OrderingFilter, filters.SearchFilter]
+    # filter_backends = [DjangoFilterBackend, filters.OrderingFilter, filters.SearchFilter]
     filterset_fields = ['featured']
     search_fields = ['title', 'description', 'technologies']
     ordering_fields = ['display_order', 'created_at', 'title']
-    lookup_field = 'slug'
+    lookup_field = 'id'
 
     def get_queryset(self):
         queryset = super().get_queryset()
