@@ -24,6 +24,7 @@ urlpatterns = [
     path('api/contact/', include('contact.urls')),
     path('api/projects/', include('projects.urls')),
     path('api/blog/', include('blog.urls')),
+    path('djrichtextfield/', include('djrichtextfield.urls')),
     path('api/newsletter/', include('newsletter.urls')),
 ]
 

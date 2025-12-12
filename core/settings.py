@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.sites',  # Required for allauth
     
     # Third-party apps
+    'djrichtextfield',
+    'ckeditor',
     'rest_framework',
     'allauth',
     'allauth.account',
@@ -197,4 +199,15 @@ REST_AUTH = {
     'JWT_AUTH_REFRESH_COOKIE': None,
     'JWT_AUTH_HTTPONLY': False,
     'USER_DETAILS_SERIALIZER': 'blog.serializers.UserSerializer',
+}
+
+DJRICHTEXTFIELD_CONFIG = {
+    'js': ['//cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js'],
+    'init_template': 'djrichtextfield/init/tinymce.js',
+    'settings': {
+        'menubar': False,
+        'plugins': 'link image',
+        'toolbar': 'bold italic | link image | removeformat',
+        'width': 700
+    }
 }
