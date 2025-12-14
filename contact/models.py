@@ -4,8 +4,9 @@ from django.core.mail import send_mail
 from django.conf import settings
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
+from utils.models import BaseModel
 
-class Contact(models.Model):
+class Contact(BaseModel):
     READ_STATUS_CHOICES = [
         ('unread', 'Unread'),
         ('read', 'Read'),
@@ -16,7 +17,6 @@ class Contact(models.Model):
     email = models.EmailField()
     subject = models.CharField(max_length=200)
     message = models.TextField()
-    created_at = models.DateTimeField(default=timezone.now)
     status = models.CharField(
         max_length=10,
         choices=READ_STATUS_CHOICES,
@@ -60,3 +60,4 @@ class Contact(models.Model):
 
     class Meta:
         ordering = ['-created_at']
+        db_table = 'contact_messages'

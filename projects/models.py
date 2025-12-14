@@ -1,7 +1,7 @@
 from django.db import models
-from django.utils import timezone
+from utils.models import BaseModel
 
-class Project(models.Model):
+class Project(BaseModel):
     title = models.CharField(max_length=200)
     description = models.TextField()
     short_description = models.CharField(max_length=300, blank=True)
@@ -11,8 +11,6 @@ class Project(models.Model):
     technologies = models.CharField(max_length=200, help_text="Comma-separated list of technologies")
     featured = models.BooleanField(default=False)
     display_order = models.PositiveIntegerField(default=0)
-    created_at = models.DateTimeField(default=timezone.now)
-    updated_at = models.DateTimeField(auto_now=True)
 
     def save(self, *args, **kwargs):
         if not self.short_description and self.description:
@@ -23,9 +21,10 @@ class Project(models.Model):
         return self.title
 
     class Meta:
-        ordering = ['display_order', '-created_at']
+        ordering = ['display_order']
+        db_table = 'projects'
 
-class ProjectImage(models.Model):
+class ProjectImage(BaseModel):
     project = models.ForeignKey(Project, related_name='images', on_delete=models.CASCADE)
     image = models.ImageField(upload_to='projects/images/')
     caption = models.CharField(max_length=200, blank=True)
@@ -33,6 +32,7 @@ class ProjectImage(models.Model):
 
     class Meta:
         ordering = ['display_order']
-
+        db_table = 'project_images'
+    
     def __str__(self):
         return f"Image for {self.project.title}"

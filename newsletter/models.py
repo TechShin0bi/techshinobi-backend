@@ -1,8 +1,9 @@
 from django.db import models
 from django.utils import timezone
 from django.core.validators import EmailValidator
+from utils.models import BaseModel
 
-class Subscriber(models.Model):
+class Subscriber(BaseModel):
     email = models.EmailField(
         max_length=255,
         unique=True,
@@ -15,6 +16,7 @@ class Subscriber(models.Model):
         verbose_name = 'Newsletter Subscriber'
         verbose_name_plural = 'Newsletter Subscribers'
         ordering = ['-subscribed_at']
+        db_table = 'newsletter_subscribers'
     
     def __str__(self):
         return self.email

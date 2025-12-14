@@ -24,8 +24,8 @@ urlpatterns = [
     path('api/contact/', include('contact.urls')),
     path('api/projects/', include('projects.urls')),
     path('api/blog/', include('blog.urls')),
-    path('djrichtextfield/', include('djrichtextfield.urls')),
     path('api/newsletter/', include('newsletter.urls')),
+    path('api/auth/', include('users.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

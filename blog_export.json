@@ -1,0 +1,45 @@
+[
+  {
+    "title": "Building Scalable APIs with Django & DRF: Best Practices for 2025",
+    "content": "<p>Django Rest Framework remains one of the most powerful and flexible technologies for building backend APIs. But scalability requires thoughtful planning&mdash;especially as your user base grows.</p>\r\n\r\n<p>Key modern best practices include:</p>\r\n\r\n<ul>\r\n\t<li>\r\n\t<p>Using token-based authentication like <strong>JWT or Knox</strong></p>\r\n\t</li>\r\n\t<li>\r\n\t<p>Implementing caching with <strong>Redis</strong></p>\r\n\t</li>\r\n\t<li>\r\n\t<p>Avoiding N+1 queries with <code>select_related</code> and <code>prefetch_related</code></p>\r\n\t</li>\r\n\t<li>\r\n\t<p>Structuring your project with clear separation of apps and services</p>\r\n\t</li>\r\n\t<li>\r\n\t<p>Using DRF throttling and rate-limiting to protect your endpoints</p>\r\n\t</li>\r\n\t<li>\r\n\t<p>Deploying with containerized environments using Docker</p>\r\n\t</li>\r\n</ul>\r\n\r\n<p>With proper architecture, DRF can support millions of requests per day while remaining clean, secure, and maintainable.</p>",
+    "image": "blog/images/django_x_DRF.jpeg",
+    "created_at": "2025-12-12T22:00:26+00:00",
+    "updated_at": "2025-12-12T22:01:39.748682+00:00",
+    "is_published": true,
+    "comments": []
+  },
+  {
+    "title": "Next.js 15: What’s New and Why It Changes Everything",
+    "content": "<p>Next.js 15 introduces a major leap forward in performance, stability, and developer experience. With faster routing, improved server actions, better caching strategies, and a cleaner architecture, it reinforces its position as the most powerful React framework.</p>\r\n\r\n<p>The new Turbopack improvements drastically reduce cold starts and hot reload times. Meanwhile, App Router refinements and enhanced SEO tooling make it easier than ever to build production-grade applications.</p>\r\n\r\n<p>If your current project uses Next.js 12 or 13, upgrading will deliver noticeable boosts in speed and DX. The future of React development is server-first&mdash;and Next.js is leading the charge.</p>",
+    "image": "blog/images/nextjs.png",
+    "created_at": "2025-12-12T21:59:07+00:00",
+    "updated_at": "2025-12-12T22:00:26.022824+00:00",
+    "is_published": true,
+    "comments": [
+      {
+        "content": "hello whats up here?",
+        "created_at": "2025-12-12T22:43:45.175858+00:00",
+        "updated_at": "2025-12-12T22:44:41.251758+00:00",
+        "is_active": true
+      }
+    ]
+  },
+  {
+    "title": "Why TypeScript is Now Essential for Modern Web Development",
+    "content": "<p>JavaScript remains the backbone of the web, but TypeScript has quickly become the preferred language for serious, scalable applications. Its ability to detect errors during development instead of at runtime saves companies thousands of hours each year.</p>\r\n\r\n<p>Beyond type safety, TypeScript improves code readability, enables powerful tooling, and increases long-term maintainability&mdash;especially in large teams.</p>\r\n\r\n<p>Frameworks like <strong>Next.js</strong>, <strong>NestJS</strong>, <strong>React Native</strong>, and <strong>Expo</strong> now strongly encourage or default to TypeScript. If you&#39;re trying to future-proof your career, learning TypeScript isn&rsquo;t optional anymore&mdash;it&#39;s a competitive advantage.</p>",
+    "image": "blog/images/typescript.png",
+    "created_at": "2025-12-12T21:57:00+00:00",
+    "updated_at": "2025-12-12T21:59:07.675957+00:00",
+    "is_published": true,
+    "comments": []
+  },
+  {
+    "title": "The Rise of AI-Powered Coding: How Developers Are Becoming 10× Faster",
+    "content": "<p>Artificial Intelligence is transforming nearly every industry, but nowhere is the impact as immediate as in software development. Tools like GitHub Copilot, ChatGPT, and Claude are helping developers write better code faster than ever before.</p>\r\n\r\n<p>These AI assistants automate repetitive tasks like boilerplate generation, testing, code reviews, and refactoring&mdash;allowing engineers to focus on architecture, product decisions, and problem-solving.</p>\r\n\r\n<p>While AI will not replace developers, developers who use AI will replace those who don&rsquo;t. The key is learning how to integrate AI safely and effectively into your workflow.</p>\r\n\r\n<p>Expect the future of coding to include real-time AI pair programmers, automated bug detection, and AI-generated documentation becoming the industry standard.</p>",
+    "image": "blog/images/AI-developer.jpg",
+    "created_at": "2025-12-12T21:54:54+00:00",
+    "updated_at": "2025-12-12T21:57:00.127325+00:00",
+    "is_published": true,
+    "comments": []
+  }
+]

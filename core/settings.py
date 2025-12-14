@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -30,7 +31,12 @@ ALLOWED_HOSTS = ['*']
 # CORS settings
 CORS_ALLOW_ALL_ORIGINS = True  # For development only, restrict in production
 CORS_ALLOW_CREDENTIALS = True
-
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+]
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:3000",
+]
 
 # Application definition
 
@@ -44,7 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',  # Required for allauth
     
     # Third-party apps
-    'djrichtextfield',
+    'django_user_agents',
     'ckeditor',
     'rest_framework',
     'allauth',
@@ -57,6 +63,7 @@ INSTALLED_APPS = [
     'projects',
     'blog',
     'newsletter',
+    'users',
 ]
 
 # Required for allauth
@@ -65,6 +72,7 @@ SITE_ID = 1
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django_user_agents.middleware.UserAgentMiddleware',
     'allauth.account.middleware.AccountMiddleware',  # Add this line
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -170,44 +178,68 @@ FILE_UPLOAD_PERMISSIONS = 0o644
 
 
 # REST Framework settings
+
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.SessionAuthentication',
-        'rest_framework.authentication.TokenAuthentication',
-    ),
-    'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
-    ),
+    "DEFAULT_PERMISSION_CLASSES": [
+        # "rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly"
+        "rest_framework.permissions.IsAuthenticated",
+    ],
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "auth_kit.authentication.JWTCookieAuthentication",  # enables cookie tokens
+    ],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 9
 }
 
+AUTH_USER_MODEL = "users.User"
+
 # Authentication settings
-AUTHENTICATION_BACKENDS = [
-    # Needed to login by username in Django admin, regardless of `allauth`
-    'django.contrib.auth.backends.ModelBackend',
+# AUTHENTICATION_BACKENDS = [
+#     # Needed to login by username in Django admin, regardless of `allauth`
+#     'django.contrib.auth.backends.ModelBackend',
 
-    # `allauth` specific authentication methods, such as login by email
-    'allauth.account.auth_backends.AuthenticationBackend',
-]
+#     # `allauth` specific authentication methods, such as login by email
+#     'allauth.account.auth_backends.AuthenticationBackend',
+# ]
 
-# dj-rest-auth settings
-REST_AUTH = {
-    'USE_JWT': False,
-    'TOKEN_MODEL': 'rest_framework.authtoken.models.Token',
-    'JWT_AUTH_COOKIE': None,
-    'JWT_AUTH_REFRESH_COOKIE': None,
-    'JWT_AUTH_HTTPONLY': False,
-    'USER_DETAILS_SERIALIZER': 'blog.serializers.UserSerializer',
-}
+SILENCED_SYSTEM_CHECKS = ['ckeditor.W001']
 
-DJRICHTEXTFIELD_CONFIG = {
-    'js': ['//cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js'],
-    'init_template': 'djrichtextfield/init/tinymce.js',
-    'settings': {
-        'menubar': False,
-        'plugins': 'link image',
-        'toolbar': 'bold italic | link image | removeformat',
-        'width': 700
-    }
+
+AUTH_KIT = {
+    "AUTH_TYPE": "jwt",  # or 'token' if you prefer DRF tokens
+    "USE_AUTH_COOKIE": True,  # enable cookie
+    "SESSION_LOGIN": False,  # disable Django session login unless needed\
+    "ALLOW_LOGIN_REDIRECT": False,
+    "AUTH_COOKIE_NAME": "auth_token",  # default cookie name
+    "AUTH_HEADER_TYPES": ("Bearer",),  # what the Authorization header expects
+    "ACCESS_TOKEN_LIFETIME": timedelta(hours=1),  # default 15 min
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=7),  # default 7 days
+    # ===================================================================
+    # COOKIE CONFIGURATION
+    # ===================================================================
+    "AUTH_COOKIE_SECURE": False,  # Require HTTPS for cookies
+    "AUTH_COOKIE_HTTPONLY": True,  # Prevent JavaScript access
+    "AUTH_COOKIE_SAMESITE": "Lax",  # 'Lax', 'Strict', or 'None'
+    "AUTH_COOKIE_DOMAIN": "192.168.1.159",  # Cookie domain
+    # ===================================================================
+    # JWT AUTHENTICATION SETTINGS
+    # ===================================================================
+    "AUTH_JWT_COOKIE_NAME": "auth-jwt",
+    "AUTH_JWT_COOKIE_PATH": "/",
+    "AUTH_JWT_REFRESH_COOKIE_NAME": "auth-refresh-jwt",
+    "AUTH_JWT_REFRESH_COOKIE_PATH": "/",
+    # ===================================================================
+    # LOGIN & LOGOUT SERIALIZERS & VIEWS
+    # ===================================================================
+    "LOGIN_REQUEST_SERIALIZER": "auth_kit.serializers.login_factors.LoginRequestSerializer",
+    "LOGIN_RESPONSE_SERIALIZER": "auth_kit.serializers.login_factors.BaseLoginResponseSerializer",
+    "LOGIN_SERIALIZER_FACTORY": "auth_kit.serializers.login.get_login_serializer",
+    "LOGIN_VIEW": "auth_kit.views.LoginView",
+    "LOGOUT_SERIALIZER": "auth_kit.serializers.logout.AuthKitLogoutSerializer",
+    "LOGOUT_VIEW": "auth_kit.views.LogoutView",
+    # ===================================================================
+    # USER MANAGEMENT SERIALIZERS & VIEWS
+    # ===================================================================
+    # "USER_SERIALIZER": "user.serializers.UserDetailSerializer",
+    "USER_VIEW": "auth_kit.views.UserView",
 }

@@ -1,5 +1,75 @@
 [
   {
+    "title": "DocLoc",
+    "description": "DocLoc is a modern online consulting website designed to simplify access to professional advice. Users can browse available consultants, book appointments, and conduct secure virtual consultations directly through the platform. The site features a clean and intuitive interface, user authentication, appointment management, and responsive design for all devices. Built with modern web technologies, DocLoc demonstrates the ability to create a scalable and user-friendly platform that bridges the gap between clients and consultants, improving accessibility and efficiency in professional services.",
+    "short_description": "DocLoc is an online consulting platform connecting clients with professionals for seamless virtual consultations across healthcare, legal, and business services.",
+    "demo_url": "https://docloc.vercel.app/",
+    "source_code_url": "https://github.com/TechShin0bi/docloc/tree/main/frontend",
+    "technologies": "Next.js, TypeScript, Tailwind CSS,, Axios, Zustand (or Redux), Django, Django REST Framework, Python, JWT Authentication,",
+    "featured": true,
+    "display_order": 0,
+    "created_at": "2025-12-12T16:39:47.031667+00:00",
+    "updated_at": "2025-12-12T16:40:13.143585+00:00",
+    "images": [
+      {
+        "image": "projects/images/Screenshot_2025-12-12_at_17.38.38.png",
+        "caption": "",
+        "display_order": 0
+      },
+      {
+        "image": "projects/images/Screenshot_2025-12-12_at_17.38.05.png",
+        "caption": "",
+        "display_order": 0
+      }
+    ],
+    "main_image": "projects/Screenshot_2025-12-12_at_17.37.56.png"
+  },
+  {
+    "title": "Feathered Friends",
+    "description": "This project is a full-featured e-commerce website focused on parrots and bird care. Users can browse a variety of products, including food, cages, toys, and accessories, add items to the cart, and complete secure online checkout. The platform includes a responsive design, smooth navigation, product search and filtering, and an admin panel for managing inventory. Built with modern web technologies, this project showcases my ability to create a user-friendly, scalable, and visually appealing e-commerce application tailored to a niche market.",
+    "short_description": "An online store for parrot lovers, offering parrot supplies, accessories, and care products with a smooth and responsive shopping experience.",
+    "demo_url": "https://feathered-friends.vercel.app/",
+    "source_code_url": "https://github.com/TechShin0bi/Feathered-Friends",
+    "technologies": "Next.js, TypeScript, Tailwind CSS, React Hooks, Axios, Zustand",
+    "featured": true,
+    "display_order": 0,
+    "created_at": "2025-12-12T16:00:54.978150+00:00",
+    "updated_at": "2025-12-12T16:00:54.986320+00:00",
+    "images": [
+      {
+        "image": "projects/images/Screenshot_2025-12-12_at_16.56.15.png",
+        "caption": "",
+        "display_order": 0
+      },
+      {
+        "image": "projects/images/Screenshot_2025-12-12_at_16.55.10.png",
+        "caption": "",
+        "display_order": 0
+      }
+    ],
+    "main_image": "projects/Screenshot_2025-12-12_at_16.54.00.png"
+  },
+  {
+    "title": "Freight-Wise",
+    "description": "This project is a complete freight and logistics management web application designed to simplify cargo transportation for businesses. It includes features such as shipment booking, real-time tracking, delivery management, and secure customer authentication. The interface is clean, modern, and optimized for a smooth user experience. Built using best-practice frontend architecture, the platform demonstrates my ability to create functional, scalable, and user-friendly web applications suitable for real-world logistics operations.",
+    "short_description": "A modern freight and logistics web platform that allows businesses to book shipments, track cargo in real time, and manage deliveries efficiently.",
+    "demo_url": "https://freight-wise.vercel.app/",
+    "source_code_url": "https://github.com/TechShin0bi/FreightWise",
+    "technologies": "Next.js, TypeScript, Tailwind CSS, React Hooks, Axios, Zustand",
+    "featured": true,
+    "display_order": 0,
+    "created_at": "2025-12-12T15:37:06.628373+00:00",
+    "updated_at": "2025-12-12T15:54:48.107601+00:00",
+    "images": [
+      {
+        "image": "projects/images/Screenshot_2025-12-12_at_16.21.01.png",
+        "caption": "",
+        "display_order": 0
+      }
+    ],
+    "main_image": "projects/Screenshot_2025-12-12_at_16_0TCIWqC.18.00.png"
+  },
+  {
     "title": "AMT TRAVEL WEB-APP",
     "description": "Full-stack travel insurance web application that allows users to search, compare, and purchase insurance plans tailored to their trips. Implemented dynamic quote calculations based on destination, trip duration, and coverage options. Built with React/Next.js, TypeScript, and Tailwind CSS for a responsive and accessible frontend, and integrated Stripe API for secure payments. Features include user authentication, policy management, and a smooth, modern UI designed to optimize user experience. The project demonstrates expertise in building production-ready web applications with a focus on performance, usability, and security.",
     "short_description": "Travel insurance web platform with real-time quote calculation, secure payment integration, and responsive design.",
@@ -8,25 +78,25 @@
     "technologies": "Next.js, React, TypeScript, Tailwind CSS, , SWR, Formik, Yup, Zustand",
     "featured": true,
     "display_order": 1,
-    "created_at": "2025-12-05T12:31:34.294292+00:00",
-    "updated_at": "2025-12-12T15:06:43.872479+00:00",
+    "created_at": "2025-12-12T15:37:51.665131+00:00",
+    "updated_at": "2025-12-12T15:37:51.665231+00:00",
     "images": [
       {
-        "image": "/media/projects/images/Screenshot_2025-12-12_at_15.47.31.png",
+        "image": "projects/images/Screenshot_2025-12-12_at_15.47.31.png",
         "caption": "",
         "display_order": 0
       },
       {
-        "image": "/media/projects/images/Screenshot_2025-12-12_at_15.47.44.png",
+        "image": "projects/images/Screenshot_2025-12-12_at_15.47.44.png",
         "caption": "",
         "display_order": 0
       },
       {
-        "image": "/media/projects/images/Screenshot_2025-12-12_at_15.47.47.png",
+        "image": "projects/images/Screenshot_2025-12-12_at_15.47.47.png",
         "caption": "",
         "display_order": 0
       }
     ],
-    "main_image": "/media/projects/Screenshot_2025-12-12_at_15.42.15.png"
+    "main_image": "projects/Screenshot_2025-12-12_at_15.42.15.png"
   }
 ]
