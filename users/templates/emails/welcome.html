@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>🥷 Welcome to Tech Shinobi</title>
+    <style>
+        body {
+            font-family: 'Roboto Mono', monospace;
+            line-height: 1.7;
+            color: #e2e8f0;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0;
+            background-color: #0f172a;
+        }
+        .container {
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+        }
+        .header {
+            background: linear-gradient(135deg, #0ea5e9 0%, #7c3aed 100%);
+            padding: 28px 0;
+            text-align: center;
+            border-bottom: 2px solid #0ea5e9;
+        }
+        .header h1 {
+            margin: 0;
+            color: #ffffff;
+            font-size: 26px;
+            letter-spacing: 1px;
+        }
+        .content {
+            padding: 30px;
+            background-color: #1e293b;
+        }
+        .logo {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        .logo-text {
+            font-size: 26px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #38bdf8 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
+        }
+        .ninja-icon {
+            font-size: 30px;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+        .message {
+            color: #cbd5f5;
+            margin: 18px 0;
+            line-height: 1.6;
+        }
+        .account-box {
+            background-color: #0f172a;
+            border-left: 4px solid #0ea5e9;
+            border-radius: 6px;
+            padding: 16px 20px;
+            margin: 22px 0;
+            color: #e0f2fe;
+            font-size: 14px;
+        }
+        .account-box strong {
+            color: #7dd3fc;
+        }
+        .cta {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .cta a {
+            display: inline-block;
+            padding: 14px 28px;
+            background: linear-gradient(135deg, #0ea5e9, #22c55e);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 9999px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 20px rgba(14, 165, 233, 0.35);
+        }
+        .cta a:hover {
+            opacity: 0.95;
+        }
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #334155;
+            font-size: 12px;
+            color: #94a3b8;
+            text-align: center;
+        }
+        .footer small {
+            display: block;
+            margin-top: 8px;
+            font-size: 11px;
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🥷 Welcome, Shinobi</h1>
+        </div>
+
+        <div class="content">
+            <div class="logo">
+                <span class="logo-text">
+                    <span class="ninja-icon">🥷</span>Tech Shinobi
+                </span>
+            </div>
+
+            <p class="message">
+                Hello <strong>{{ user.first_name }} {{ user.last_name }}</strong>,
+            </p>
+
+            <p class="message">
+                Your journey into the shadows of technology has officially begun.  
+                Welcome to <strong>Tech Shinobi</strong> — where precision, security, and mastery rule.
+            </p>
+
+            <div class="account-box">
+                <p><strong>Username:</strong> {{ user.username }}</p>
+                <p><strong>Email:</strong> {{ user.email }}</p>
+            </div>
+
+            <p class="message">
+                Your account has been successfully created. You now have access to powerful tools, secure systems,
+                and a growing network of elite developers.
+            </p>
+
+            <div class="cta">
+                <a href="{{ login_url }}">ENTER THE DOJO</a>
+            </div>
+
+            <p class="message">
+                If you did not create this account, please contact our support team immediately.
+            </p>
+        </div>
+
+        <div class="footer">
+            <p>This is an automated message from Tech Shinobi. Please do not reply.</p>
+            <p>© {% now "Y" %} Tech Shinobi. All rights reserved.</p>
+            <small>
+                Security Tip: A true shinobi never shares credentials or access tokens.
+            </small>
+        </div>
+    </div>
+</body>
+</html>

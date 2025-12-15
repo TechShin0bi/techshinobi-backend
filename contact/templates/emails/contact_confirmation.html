@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Thank You for Contacting TechShinobi</title>
+    <style>
+        body {
+            font-family: 'Roboto Mono', monospace;
+            line-height: 1.7;
+            color: #e2e8f0;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0;
+            background-color: #0f172a;
+        }
+        .container {
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        .header {
+            background: linear-gradient(135deg, #0ea5e9 0%, #7c3aed 100%);
+            padding: 25px 0;
+            text-align: center;
+            border-bottom: 2px solid #0ea5e9;
+        }
+        .header h1 {
+            margin: 0;
+            color: white;
+            font-size: 22px;
+            letter-spacing: 1px;
+        }
+        .content {
+            padding: 25px;
+            background-color: #1e293b;
+        }
+        .content p {
+            color: #cbd5e1;
+            margin: 12px 0;
+            line-height: 1.6;
+        }
+        .message-box {
+            background-color: #0f172a;
+            border-left: 4px solid #7c3aed;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        .message-box p {
+            margin: 5px 0;
+            color: #e2e8f0;
+        }
+        .footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #334155;
+            font-size: 12px;
+            color: #94a3b8;
+            text-align: center;
+        }
+        .highlight {
+            color: #7c3aed;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🥷 Thank You for Contacting TechShinobi!</h1>
+        </div>
+
+        <div class="content">
+            <p>Hello {{ name }},</p>
+            
+            <p>Thank you for reaching out to us. We've received your message and our team will get back to you as soon as possible.</p>
+            
+            <div class="message-box">
+                <p><span class="highlight">Subject:</span> {{ subject }}</p>
+                <p><span class="highlight">Your Message:</span></p>
+                <p>{{ message|linebreaksbr }}</p>
+            </div>
+            
+            <p>We typically respond within 24-48 hours. If you have any additional information to add to your inquiry, please reply to this email.</p>
+            
+            <p>Best regards,<br>The TechShinobi Team</p>
+        </div>
+
+        <div class="footer">
+            <p>This is an automated message. Please do not reply to this email.</p>
+            <p>© {% now "Y" %} TechShinobi. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>

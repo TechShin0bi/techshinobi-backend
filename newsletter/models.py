@@ -1,7 +1,14 @@
+import secrets
+import string
 from django.db import models
 from django.utils import timezone
 from django.core.validators import EmailValidator
 from utils.models import BaseModel
+
+def generate_unsubscribe_token():
+    """Generate a secure random token for unsubscribing."""
+    alphabet = string.ascii_letters + string.digits
+    return ''.join(secrets.choice(alphabet) for _ in range(32))
 
 class Subscriber(BaseModel):
     email = models.EmailField(
@@ -11,6 +18,12 @@ class Subscriber(BaseModel):
     )
     subscribed_at = models.DateTimeField(auto_now_add=True)
     is_active = models.BooleanField(default=True)
+    unsubscribe_token = models.CharField(
+        max_length=32,
+        unique=True,
+        default=generate_unsubscribe_token,
+        editable=False
+    )
     
     class Meta:
         verbose_name = 'Newsletter Subscriber'

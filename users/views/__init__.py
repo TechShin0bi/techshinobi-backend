@@ -1,7 +1,9 @@
-from .login import LoginView
-from .logout import LogoutView
+from .password_reset_views import PasswordResetConfirmView,PasswordResetRequestView , PasswordResetVerifyOTPView
+from .auth_views import UserRegistrationView
 
 __all__ = [
-    "LoginView",
-    "LogoutView",
+    "PasswordResetConfirmView",
+    "PasswordResetRequestView",
+    "PasswordResetVerifyOTPView",
+    "UserRegistrationView",
 ]

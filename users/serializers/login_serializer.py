@@ -15,36 +15,18 @@ class LoginSerializer(serializers.Serializer):
 
     def validate(self, attrs):
         """
-        Validate login credentials and user type.
+        Validate login credentials.
         Returns the validated data if successful.
         """
         username = attrs.get('username')
         password = attrs.get('password')
-
         # Basic validation
         if not username or not password:
             raise serializers.ValidationError(_('Both username and password are required.'))
             
-        # Get valid user types from the choices
-        user_type_field = self.fields['user_type']
-        valid_user_types = [choice[0] if isinstance(choice, (list, tuple)) else choice 
-                          for choice in user_type_field.choices]
-        
-        # Convert user_type to int for comparison if it's a string
-        try:
-            user_type = int(user_type) if isinstance(user_type, str) else user_type
-        except (ValueError, TypeError):
-            raise serializers.ValidationError(_('Invalid user type format.'))
-            
-        # Validate user type
-        if user_type not in valid_user_types:
-            raise serializers.ValidationError(_('Invalid user type specified.'))
-            
         # Store the credentials for the view to use
         attrs['username'] = username
         attrs['password'] = password
-        attrs['user_type'] = user_type
-
         return attrs
 
     def authenticate_user(self):
@@ -57,7 +39,6 @@ class LoginSerializer(serializers.Serializer):
             
         username = self.validated_data['username']
         password = self.validated_data['password']
-        user_type = self.validated_data['user_type']
         request = self.context.get('request')
         
         # Authenticate user
@@ -85,5 +66,4 @@ class LoginSerializer(serializers.Serializer):
                 'access_expiration': (timezone.now() + jwt_settings.ACCESS_TOKEN_LIFETIME).isoformat(),
                 'refresh_expiration': (timezone.now() + jwt_settings.REFRESH_TOKEN_LIFETIME).isoformat(),
             },
-            'user_type': user_type,
         }

@@ -25,6 +25,7 @@ urlpatterns = [
     path('api/projects/', include('projects.urls')),
     path('api/blog/', include('blog.urls')),
     path('api/newsletter/', include('newsletter.urls')),
+    # path('api/auth/', include('auth_kit.urls')),
     path('api/auth/', include('users.urls')),
 ]
 

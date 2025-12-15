@@ -26,18 +26,50 @@ SECRET_KEY = 'django-insecure-mzv!m5c%vzx!=6d96dy25d79*bbaz02p%+(a@!x%$6l&(v2yw#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [
+    '127.0.0.1',    
+    '192.168.1.159',
+    'localhost'
+]
 
 # CORS settings
-CORS_ALLOW_ALL_ORIGINS = True  # For development only, restrict in production
-CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
-]
-CSRF_TRUSTED_ORIGINS = [
-    "http://localhost:3000",
+#     "http://127.0.0.1:3000",
+#     "http://127.0.0.1:8000",
+#     "http://192.168.1.159:8000",
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+    "http://192.168.1.159:3000",
+]
+
+CORS_ALLOW_CREDENTIALS = True
+
+CSRF_COOKIE_SAMESITE = "None"
+CSRF_COOKIE_SECURE = False  # True in production (HTTPS)
+SESSION_COOKIE_SAMESITE = "None"
+SESSION_COOKIE_SECURE = False
+
+
+# Allow specific headers
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+    'x-device-id',  # Add this line to allow x-device-id header
+]
+
+# Allow credentials
+CORS_ALLOW_CREDENTIALS = True
 # Application definition
 
 INSTALLED_APPS = [
@@ -212,15 +244,13 @@ AUTH_KIT = {
     "ALLOW_LOGIN_REDIRECT": False,
     "AUTH_COOKIE_NAME": "auth_token",  # default cookie name
     "AUTH_HEADER_TYPES": ("Bearer",),  # what the Authorization header expects
-    "ACCESS_TOKEN_LIFETIME": timedelta(hours=1),  # default 15 min
-    "REFRESH_TOKEN_LIFETIME": timedelta(days=7),  # default 7 days
     # ===================================================================
     # COOKIE CONFIGURATION
     # ===================================================================
     "AUTH_COOKIE_SECURE": False,  # Require HTTPS for cookies
     "AUTH_COOKIE_HTTPONLY": True,  # Prevent JavaScript access
     "AUTH_COOKIE_SAMESITE": "Lax",  # 'Lax', 'Strict', or 'None'
-    "AUTH_COOKIE_DOMAIN": "192.168.1.159",  # Cookie domain
+    "AUTH_COOKIE_DOMAIN": None,  # Cookie domain
     # ===================================================================
     # JWT AUTHENTICATION SETTINGS
     # ===================================================================
@@ -240,6 +270,32 @@ AUTH_KIT = {
     # ===================================================================
     # USER MANAGEMENT SERIALIZERS & VIEWS
     # ===================================================================
-    # "USER_SERIALIZER": "user.serializers.UserDetailSerializer",
+    "USER_SERIALIZER": "users.serializers.UserDetailSerializer",
     "USER_VIEW": "auth_kit.views.UserView",
 }
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=7),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=14),
+    'ROTATE_REFRESH_TOKENS': True,
+    'BLACKLIST_AFTER_ROTATION': True,
+}
+
+# Looking to send emails in production? Check out our Email API/SMTP product!
+# EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
+# EMAIL_HOST_USER = 'a1ed9b3cb00414'
+# EMAIL_HOST_PASSWORD = '3929b68f9d634f'
+# EMAIL_PORT = '2525'
+
+# In settings.py
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  # Make sure this is set
+EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
+EMAIL_PORT = 2525  # Should be an integer, not a string
+EMAIL_USE_TLS = True  # Add this line
+EMAIL_HOST_USER = 'a1ed9b3cb00414'  # Your Mailtrap username
+EMAIL_HOST_PASSWORD = '3929b68f9d634f'  # Your Mailtrap password
+DEFAULT_FROM_EMAIL = 'noreply@techshinobi.com'  # Set a default from email
+
+# In settings.py
+FRONTEND_URL = 'https://yourdomain.com'  # Your frontend URL
+DEFAULT_FROM_EMAIL = 'noreply@yourdomain.com'  # Your default from email

@@ -6,9 +6,9 @@ urlpatterns = [
     
     # Blog posts
     path('posts/', views.BlogPostListCreateView.as_view(), name='post-list'),
-    path('posts/<int:id>/', views.BlogPostRetrieveUpdateDestroyView.as_view(), name='post-detail'),
+    path('posts/<str:id>/', views.BlogPostRetrieveUpdateDestroyView.as_view(), name='post-detail'),
     
     # Comments
-    path('posts/<int:id>/comments/', views.CommentCreateView.as_view(), name='comment-create'),
-    path('comments/<int:pk>/', views.CommentUpdateDeleteView.as_view(), name='comment-detail'),
+    path('posts/<str:id>/comments/', views.CommentCreateView.as_view(), name='comment-create'),
+    path('comments/<str:pk>/', views.CommentUpdateDeleteView.as_view(), name='comment-detail'),
 ]

@@ -5,7 +5,7 @@ class Project(BaseModel):
     title = models.CharField(max_length=200)
     description = models.TextField()
     short_description = models.CharField(max_length=300, blank=True)
-    image = models.ImageField(upload_to='projects/', blank=True, null=True)
+    image = models.ImageField(upload_to='projects/img/', blank=True, null=True)
     demo_url = models.URLField(blank=True, null=True)
     source_code_url = models.URLField(blank=True, null=True)
     technologies = models.CharField(max_length=200, help_text="Comma-separated list of technologies")

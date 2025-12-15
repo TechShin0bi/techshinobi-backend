@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>New Contact Form Submission - TechShinobi</title>
+    <style>
+        body {
+            font-family: 'Roboto Mono', monospace;
+            line-height: 1.7;
+            color: #e2e8f0;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0;
+            background-color: #0f172a;
+        }
+        .container {
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        .header {
+            background: linear-gradient(135deg, #ef4444 0%, #7c3aed 100%);
+            padding: 20px 0;
+            text-align: center;
+            border-bottom: 2px solid #ef4444;
+        }
+        .header h1 {
+            margin: 0;
+            color: white;
+            font-size: 20px;
+            letter-spacing: 1px;
+        }
+        .content {
+            padding: 25px;
+            background-color: #1e293b;
+        }
+        .content p {
+            color: #cbd5e1;
+            margin: 12px 0;
+            line-height: 1.6;
+        }
+        .message-box {
+            background-color: #0f172a;
+            border-left: 4px solid #7c3aed;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        .message-box p {
+            margin: 5px 0;
+            color: #e2e8f0;
+        }
+        .footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #334155;
+            font-size: 12px;
+            color: #94a3b8;
+            text-align: center;
+        }
+        .highlight {
+            color: #7c3aed;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🥷 New Contact Form Submission</h1>
+        </div>
+
+        <div class="content">
+            <p>Hello {{ admin_name }},</p>
+            
+            <p>You've received a new message from the contact form on TechShinobi:</p>
+            
+            <div class="message-box">
+                <p><span class="highlight">From:</span> {{ name }} &lt;{{ email }}&gt;</p>
+                <p><span class="highlight">Subject:</span> {{ subject }}</p>
+                <p><span class="highlight">Message Preview:</span></p>
+                <div id="message-preview" style="max-height: 150px; overflow: hidden; position: relative;">
+                    <p>{{ message|linebreaksbr }}</p>
+                    <div style="
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        right: 0;
+                        height: 60px;
+                        background: linear-gradient(to bottom, rgba(15, 23, 42, 0.1), #0f172a);
+                        display: flex;
+                        align-items: flex-end;
+                        justify-content: center;
+                        padding-bottom: 10px;
+                    ">
+                        <button onclick="this.parentElement.parentElement.style.maxHeight='none'; this.parentElement.style.display='none';" 
+                                style="
+                                    background: #7c3aed;
+                                    color: white;
+                                    border: none;
+                                    padding: 8px 16px;
+                                    border-radius: 4px;
+                                    cursor: pointer;
+                                    font-family: 'Roboto Mono', monospace;
+                                    font-size: 14px;
+                                ">
+                            View Full Message
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <p>You can reply directly to this email to respond to {{ name.split.0|default:'the sender' }}.</p>
+            
+            <p>Best regards,<br>The TechShinobi System</p>
+        </div>
+
+        <div class="footer">
+            <p>This is an automated message. Please do not reply to this email.</p>
+            <p>© {% now "Y" %} TechShinobi. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>
