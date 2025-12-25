@@ -6,6 +6,7 @@ django-ckeditor==6.7.3
 django-cors-headers==4.9.0
 django-filter==25.2
 django-js-asset==3.1.2
+django-user-agents==0.4.0
 djangorestframework==3.16.1
 djangorestframework_simplejwt==5.5.1
 drf-auth-kit==0.3.11
@@ -15,6 +16,8 @@ jsonschema==4.25.1
 jsonschema-specifications==2025.9.1
 Markdown==3.10
 pillow==12.0.0
+psycopg==3.3.2
+psycopg-binary==3.3.2
 PyJWT==2.10.1
 python-dotenv==1.0.0
 pytz==2025.2
@@ -24,4 +27,7 @@ rpds-py==0.30.0
 sqlparse==0.5.4
 structlog==25.5.0
 typing_extensions==4.15.0
+ua-parser==1.0.1
+ua-parser-builtins==0.18.0.post1
 uritemplate==4.2.0
+user-agents==2.2.0
