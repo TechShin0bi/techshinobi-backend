@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 from datetime import timedelta
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,7 +30,7 @@ SECRET_KEY = "django-insecure-mzv!m5c%vzx!=6d96dy25d79*bbaz02p%+(a@!x%$6l&(v2yw#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["*", ".vercel.app"]
 
 # CORS settings
 CORS_ALLOWED_ORIGINS = [
@@ -35,7 +39,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://192.168.1.159:3000",
     "https://techshinobi-backend.onrender.com",
     "https://techshinobi-porfolio.onrender.com",
-    ".vercel.app",
+    "https://techshinobi-backend.vercel.app"
 ]
 
 CSRF_TRUSTED_ORIGINS = [
@@ -44,6 +48,7 @@ CSRF_TRUSTED_ORIGINS = [
     "http://192.168.1.159:3000",
     "https://techshinobi-backend.onrender.com",
     "https://techshinobi-porfolio.onrender.com",
+    "https://techshinobi-backend.vercel.app"
 ]
 
 CORS_ALLOW_CREDENTIALS = True
@@ -156,11 +161,11 @@ WSGI_APPLICATION = "core.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "techshinobidb",
-        "USER": "techshinobidb_user",
-        "PASSWORD": "GR8mVphteYhELQvP5smnPnG1BeW9NjDE",
-        "HOST": "dpg-d56jiuu3jp1c73afc2jg-a.oregon-postgres.render.com",
-        "PORT": "5432",
+        "NAME": os.getenv("PGDATABASE"),
+        "USER": os.getenv("PGUSER"),
+        "PASSWORD": os.getenv("PGPASSWORD"),
+        "HOST": os.getenv("PGHOST"),
+        "PORT": os.getenv("PGPORT"),
     }
 }
 
