@@ -29,7 +29,8 @@ DEBUG = True
 ALLOWED_HOSTS = [
     '127.0.0.1',    
     '192.168.1.159',
-    'localhost'
+    'localhost',
+    '0.0.0.0'
 ]
 
 # CORS settings
@@ -137,10 +138,32 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'techshinobidb',
+#         'USER': 'techshinobidb_user',
+#         'PASSWORD': 'GR8mVphteYhELQvP5smnPnG1BeW9NjDE',
+#         'HOST': 'postgresql://techshinobidb_user:GR8mVphteYhELQvP5smnPnG1BeW9NjDE@dpg-d56jiuu3jp1c73afc2jg-a.oregon-postgres.render.com/techshinobidb',
+#         'PORT': '5432',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'techshinobidb',
+        'USER': 'techshinobidb_user',
+        'PASSWORD': 'GR8mVphteYhELQvP5smnPnG1BeW9NjDE',
+        'HOST': 'dpg-d56jiuu3jp1c73afc2jg-a.oregon-postgres.render.com',
+        'PORT': '5432',
     }
 }
 

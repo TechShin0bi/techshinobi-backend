@@ -1,0 +1,18 @@
+<!-- contact/templates/emails/contact_notification.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>New Contact Form Submission</title>
+</head>
+<body>
+    <h2>New Contact Form Submission</h2>
+    <p><strong>Name:</strong> {{ contact.name }}</p>
+    <p><strong>Email:</strong> {{ contact.email }}</p>
+    <p><strong>Subject:</strong> {{ contact.subject }}</p>
+    <p><strong>Message:</strong></p>
+    <p>{{ contact.message|linebreaks }}</p>
+    {% if admin_url %}
+    <p><a href="{{ admin_url }}">View in Admin</a></p>
+    {% endif %}
+</body>
+</html>
