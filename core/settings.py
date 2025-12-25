@@ -39,7 +39,8 @@ CORS_ALLOWED_ORIGINS = [
     "http://192.168.1.159:3000",
     "https://techshinobi-backend.onrender.com",
     "https://techshinobi-porfolio.onrender.com",
-    "https://techshinobi-backend.vercel.app"
+    "https://techshinobi-backend.vercel.app",
+    "https://techshinobi-porfolio.vercel.app"
 ]
 
 CSRF_TRUSTED_ORIGINS = [
@@ -48,7 +49,8 @@ CSRF_TRUSTED_ORIGINS = [
     "http://192.168.1.159:3000",
     "https://techshinobi-backend.onrender.com",
     "https://techshinobi-porfolio.onrender.com",
-    "https://techshinobi-backend.vercel.app"
+    "https://techshinobi-backend.vercel.app",
+    "https://techshinobi-porfolio.vercel.app"
 ]
 
 CORS_ALLOW_CREDENTIALS = True
