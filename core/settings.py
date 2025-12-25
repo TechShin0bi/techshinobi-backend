@@ -35,6 +35,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://192.168.1.159:3000",
     "https://techshinobi-backend.onrender.com",
     "https://techshinobi-porfolio.onrender.com",
+    ".vercel.app",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
