@@ -21,30 +21,26 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-mzv!m5c%vzx!=6d96dy25d79*bbaz02p%+(a@!x%$6l&(v2yw#'
+SECRET_KEY = "django-insecure-mzv!m5c%vzx!=6d96dy25d79*bbaz02p%+(a@!x%$6l&(v2yw#"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    '127.0.0.1',    
-    '192.168.1.159',
-    'localhost',
-    '0.0.0.0'
-]
+ALLOWED_HOSTS = ["*"]
 
 # CORS settings
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
-#     "http://127.0.0.1:3000",
-#     "http://127.0.0.1:8000",
-#     "http://192.168.1.159:8000",
+    "http://127.0.0.1:3000",
+    "http://192.168.1.159:3000",
+    "https://techshinobi-backend.onrender.com",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
     "http://192.168.1.159:3000",
+    "https://techshinobi-backend.onrender.com",
 ]
 
 CORS_ALLOW_CREDENTIALS = True
@@ -57,16 +53,16 @@ SESSION_COOKIE_SECURE = False
 
 # Allow specific headers
 CORS_ALLOW_HEADERS = [
-    'accept',
-    'accept-encoding',
-    'authorization',
-    'content-type',
-    'dnt',
-    'origin',
-    'user-agent',
-    'x-csrftoken',
-    'x-requested-with',
-    'x-device-id',  # Add this line to allow x-device-id header
+    "accept",
+    "accept-encoding",
+    "authorization",
+    "content-type",
+    "dnt",
+    "origin",
+    "user-agent",
+    "x-csrftoken",
+    "x-requested-with",
+    "x-device-id",  # Add this line to allow x-device-id header
 ]
 
 # Allow credentials
@@ -74,65 +70,63 @@ CORS_ALLOW_CREDENTIALS = True
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'django.contrib.sites',  # Required for allauth
-    
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    "django.contrib.sites",  # Required for allauth
     # Third-party apps
-    'django_user_agents',
-    'ckeditor',
-    'rest_framework',
-    'allauth',
-    'allauth.account',
-    'auth_kit',
-    'corsheaders',
-    
+    "django_user_agents",
+    "ckeditor",
+    "rest_framework",
+    "allauth",
+    "allauth.account",
+    "auth_kit",
+    "corsheaders",
     # Local apps
-    'contact',
-    'projects',
-    'blog',
-    'newsletter',
-    'users',
+    "contact",
+    "projects",
+    "blog",
+    "newsletter",
+    "users",
 ]
 
 # Required for allauth
 SITE_ID = 1
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django_user_agents.middleware.UserAgentMiddleware',
-    'allauth.account.middleware.AccountMiddleware',  # Add this line
-    'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django.middleware.security.SecurityMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django_user_agents.middleware.UserAgentMiddleware",
+    "allauth.account.middleware.AccountMiddleware",  # Add this line
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = 'core.urls'
+ROOT_URLCONF = "core.urls"
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
             ],
         },
     },
 ]
 
-WSGI_APPLICATION = 'core.wsgi.application'
+WSGI_APPLICATION = "core.wsgi.application"
 
 
 # Database
@@ -157,13 +151,13 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # }
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'techshinobidb',
-        'USER': 'techshinobidb_user',
-        'PASSWORD': 'GR8mVphteYhELQvP5smnPnG1BeW9NjDE',
-        'HOST': 'dpg-d56jiuu3jp1c73afc2jg-a.oregon-postgres.render.com',
-        'PORT': '5432',
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "techshinobidb",
+        "USER": "techshinobidb_user",
+        "PASSWORD": "GR8mVphteYhELQvP5smnPnG1BeW9NjDE",
+        "HOST": "dpg-d56jiuu3jp1c73afc2jg-a.oregon-postgres.render.com",
+        "PORT": "5432",
     }
 }
 
@@ -173,16 +167,16 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
 
@@ -190,9 +184,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = "UTC"
 
 USE_I18N = True
 
@@ -202,16 +196,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = "static/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
 # Email settings
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # For development
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"  # For development
 # For production, use:
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # EMAIL_HOST = 'your-smtp-server.com'
@@ -219,17 +213,16 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # For developm
 # EMAIL_USE_TLS = True
 # EMAIL_HOST_USER = 'your-email@example.com'
 # EMAIL_HOST_PASSWORD = 'your-email-password'
-DEFAULT_FROM_EMAIL = 'noreply@yourdomain.com'
-ADMIN_EMAIL = 'admin@yourdomain.com'  # Replace with admin email
+DEFAULT_FROM_EMAIL = "noreply@yourdomain.com"
+ADMIN_EMAIL = "admin@yourdomain.com"  # Replace with admin email
 
 
 # Media files
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"
 
 # File upload permissions
 FILE_UPLOAD_PERMISSIONS = 0o644
-
 
 
 # REST Framework settings
@@ -242,8 +235,8 @@ REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [
         "auth_kit.authentication.JWTCookieAuthentication",  # enables cookie tokens
     ],
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 9
+    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
+    "PAGE_SIZE": 9,
 }
 
 AUTH_USER_MODEL = "users.User"
@@ -257,7 +250,7 @@ AUTH_USER_MODEL = "users.User"
 #     'allauth.account.auth_backends.AuthenticationBackend',
 # ]
 
-SILENCED_SYSTEM_CHECKS = ['ckeditor.W001']
+SILENCED_SYSTEM_CHECKS = ["ckeditor.W001"]
 
 
 AUTH_KIT = {
@@ -298,10 +291,10 @@ AUTH_KIT = {
 }
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(days=7),
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=14),
-    'ROTATE_REFRESH_TOKENS': True,
-    'BLACKLIST_AFTER_ROTATION': True,
+    "ACCESS_TOKEN_LIFETIME": timedelta(days=7),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=14),
+    "ROTATE_REFRESH_TOKENS": True,
+    "BLACKLIST_AFTER_ROTATION": True,
 }
 
 # Looking to send emails in production? Check out our Email API/SMTP product!
@@ -311,14 +304,14 @@ SIMPLE_JWT = {
 # EMAIL_PORT = '2525'
 
 # In settings.py
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  # Make sure this is set
-EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"  # Make sure this is set
+EMAIL_HOST = "sandbox.smtp.mailtrap.io"
 EMAIL_PORT = 2525  # Should be an integer, not a string
 EMAIL_USE_TLS = True  # Add this line
-EMAIL_HOST_USER = 'a1ed9b3cb00414'  # Your Mailtrap username
-EMAIL_HOST_PASSWORD = '3929b68f9d634f'  # Your Mailtrap password
-DEFAULT_FROM_EMAIL = 'noreply@techshinobi.com'  # Set a default from email
+EMAIL_HOST_USER = "a1ed9b3cb00414"  # Your Mailtrap username
+EMAIL_HOST_PASSWORD = "3929b68f9d634f"  # Your Mailtrap password
+DEFAULT_FROM_EMAIL = "noreply@techshinobi.com"  # Set a default from email
 
 # In settings.py
-FRONTEND_URL = 'https://yourdomain.com'  # Your frontend URL
-DEFAULT_FROM_EMAIL = 'noreply@yourdomain.com'  # Your default from email
+FRONTEND_URL = "https://yourdomain.com"  # Your frontend URL
+DEFAULT_FROM_EMAIL = "noreply@yourdomain.com"  # Your default from email
