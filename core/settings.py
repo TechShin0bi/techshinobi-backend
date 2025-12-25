@@ -34,6 +34,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:3000",
     "http://192.168.1.159:3000",
     "https://techshinobi-backend.onrender.com",
+    "https://techshinobi-porfolio.onrender.com",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
@@ -41,6 +42,7 @@ CSRF_TRUSTED_ORIGINS = [
     "http://127.0.0.1:3000",
     "http://192.168.1.159:3000",
     "https://techshinobi-backend.onrender.com",
+    "https://techshinobi-porfolio.onrender.com",
 ]
 
 CORS_ALLOW_CREDENTIALS = True
