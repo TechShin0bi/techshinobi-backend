@@ -30,27 +30,25 @@ SECRET_KEY = "django-insecure-mzv!m5c%vzx!=6d96dy25d79*bbaz02p%+(a@!x%$6l&(v2yw#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*", ".vercel.app"]
+ALLOWED_HOSTS = [
+     "https://techshinobi.dev"
+]
 
 # CORS settings
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
-    "http://192.168.1.159:3000",
     "https://techshinobi-backend.onrender.com",
     "https://techshinobi-porfolio.onrender.com",
     "https://techshinobi-backend.vercel.app",
-    "https://techshinobi-porfolio.vercel.app"
+    "https://techshinobi-porfolio.vercel.app",
+    "https://techshinobi.dev"
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
-    "http://192.168.1.159:3000",
     "https://techshinobi-backend.onrender.com",
     "https://techshinobi-porfolio.onrender.com",
     "https://techshinobi-backend.vercel.app",
-    "https://techshinobi-porfolio.vercel.app"
+    "https://techshinobi-porfolio.vercel.app",
+     "https://techshinobi.dev"
 ]
 
 CORS_ALLOW_CREDENTIALS = True
