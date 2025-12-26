@@ -55,9 +55,9 @@ CSRF_TRUSTED_ORIGINS = [
 CORS_ALLOW_CREDENTIALS = True
 
 CSRF_COOKIE_SAMESITE = "None"
-CSRF_COOKIE_SECURE = False  # True in production (HTTPS)
+CSRF_COOKIE_SECURE = True  # True in production (HTTPS)
 SESSION_COOKIE_SAMESITE = "None"
-SESSION_COOKIE_SECURE = False
+SESSION_COOKIE_SECURE = True  # True in production (HTTPS)
 
 
 # Allow specific headers
@@ -272,7 +272,7 @@ AUTH_KIT = {
     # ===================================================================
     # COOKIE CONFIGURATION
     # ===================================================================
-    "AUTH_COOKIE_SECURE": False,  # Require HTTPS for cookies
+    "AUTH_COOKIE_SECURE": True,  # Require HTTPS for cookies
     "AUTH_COOKIE_HTTPONLY": True,  # Prevent JavaScript access
     "AUTH_COOKIE_SAMESITE": "Lax",  # 'Lax', 'Strict', or 'None'
     "AUTH_COOKIE_DOMAIN": None,  # Cookie domain
