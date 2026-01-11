@@ -31,7 +31,7 @@ SECRET_KEY = "django-insecure-mzv!m5c%vzx!=6d96dy25d79*bbaz02p%+(a@!x%$6l&(v2yw#
 DEBUG = True
 
 ALLOWED_HOSTS = [
-     "https://techshinobi.dev",
+     "techshinobi.dev",
      "techshinobi-backend.vercel.app",
 ]
 
