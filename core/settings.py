@@ -30,35 +30,23 @@ SECRET_KEY = "django-insecure-mzv!m5c%vzx!=6d96dy25d79*bbaz02p%+(a@!x%$6l&(v2yw#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*", ".vercel.app"]
+ALLOWED_HOSTS = [".vercel.app"]
 
 # CORS settings
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
-    "http://192.168.1.159:3000",
-    "https://techshinobi-backend.onrender.com",
-    "https://techshinobi-porfolio.onrender.com",
-    "https://techshinobi-backend.vercel.app",
-    "https://techshinobi-porfolio.vercel.app"
+    "https://techshinobi.dev"
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
-    "http://192.168.1.159:3000",
-    "https://techshinobi-backend.onrender.com",
-    "https://techshinobi-porfolio.onrender.com",
-    "https://techshinobi-backend.vercel.app",
-    "https://techshinobi-porfolio.vercel.app"
+    "https://techshinobi.dev"
 ]
 
 CORS_ALLOW_CREDENTIALS = True
 
 CSRF_COOKIE_SAMESITE = "None"
-CSRF_COOKIE_SECURE = False  # True in production (HTTPS)
+CSRF_COOKIE_SECURE = True  # True in production (HTTPS)
 SESSION_COOKIE_SAMESITE = "None"
-SESSION_COOKIE_SECURE = False
+SESSION_COOKIE_SECURE = True
 
 
 # Allow specific headers
@@ -273,10 +261,10 @@ AUTH_KIT = {
     # ===================================================================
     # COOKIE CONFIGURATION
     # ===================================================================
-    "AUTH_COOKIE_SECURE": False,  # Require HTTPS for cookies
+    "AUTH_COOKIE_SECURE": True,  # Require HTTPS for cookies
     "AUTH_COOKIE_HTTPONLY": True,  # Prevent JavaScript access
-    "AUTH_COOKIE_SAMESITE": "Lax",  # 'Lax', 'Strict', or 'None'
-    "AUTH_COOKIE_DOMAIN": None,  # Cookie domain
+    "AUTH_COOKIE_SAMESITE": "None",  # 'Lax', 'Strict', or 'None'
+    "AUTH_COOKIE_DOMAIN": ".techshinobi.dev",  # Cookie domain
     # ===================================================================
     # JWT AUTHENTICATION SETTINGS
     # ===================================================================
@@ -322,6 +310,5 @@ EMAIL_HOST_USER = "a1ed9b3cb00414"  # Your Mailtrap username
 EMAIL_HOST_PASSWORD = "3929b68f9d634f"  # Your Mailtrap password
 DEFAULT_FROM_EMAIL = "noreply@techshinobi.com"  # Set a default from email
 
-# In settings.py
-FRONTEND_URL = "https://yourdomain.com"  # Your frontend URL
-DEFAULT_FROM_EMAIL = "noreply@yourdomain.com"  # Your default from email
+FRONTEND_URL = "https://techshinobi.dev"  # Your frontend URL
+DEFAULT_FROM_EMAIL = "noreply@techshinobi.dev"  # Your default from email
