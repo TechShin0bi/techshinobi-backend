@@ -30,7 +30,10 @@ SECRET_KEY = "django-insecure-mzv!m5c%vzx!=6d96dy25d79*bbaz02p%+(a@!x%$6l&(v2yw#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [".vercel.app"]
+ALLOWED_HOSTS = [
+     "https://techshinobi.dev",
+     "techshinobi-backend.vercel.app",
+]
 
 # CORS settings
 CORS_ALLOWED_ORIGINS = [
