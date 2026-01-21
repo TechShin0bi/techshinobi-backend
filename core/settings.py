@@ -268,8 +268,8 @@ AUTH_KIT = {
     # ===================================================================
     "AUTH_COOKIE_SECURE": True,  # Require HTTPS for cookies
     "AUTH_COOKIE_HTTPONLY": True,  # Prevent JavaScript access
-    "AUTH_COOKIE_SAMESITE": "None",  # 'Lax', 'Strict', or 'None'
-    "AUTH_COOKIE_DOMAIN": ".techshinobi.dev",  # Cookie domain
+    "AUTH_COOKIE_SAMESITE": None,  # 'Lax', 'Strict', or 'None'
+    "AUTH_COOKIE_DOMAIN": None,  # Cookie domain
     # ===================================================================
     # JWT AUTHENTICATION SETTINGS
     # ===================================================================
